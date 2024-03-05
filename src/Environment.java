@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Environment {
-    public static final int SIDE = 20;
+    public static final int SIDE = 30;
     public static final int TOTAL_MATERIAL = 40000;
     public static final int CELLNUM = SIDE*SIDE;
     int[][] raw_arr;

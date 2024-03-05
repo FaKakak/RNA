@@ -2,7 +2,6 @@ import java.lang.System;
 import java.util.Arrays;
 
 public class RNA {
-    // 跟RNA有关的宏定义都写在这儿了
     public static final int MAX_RNA_LENGTH = 100;
     public static final char[] NRSEQ = {'A','G','C','A','U','G','C','U'};
     public static final char[] CTR1SEQ = {'C','U','C','U','A','G','A','G'};
@@ -22,12 +21,12 @@ public class RNA {
     RNA next;
     RNA prior;
 
-    // 咱的新RNA就通通next指向自己，prior指向null好吧
+    // 新RNA next指向自己，prior指向null
     public RNA() {
         information = new char[2][MAX_RNA_LENGTH];
-        int length1=0;
-        int length2=0;
-        int nick=0;
+        length1=0;
+        length2=0;
+        nick=0;
         next = this;
         prior = null;
         information[0][0] = '0';
@@ -91,4 +90,5 @@ public class RNA {
         next = this;
         prior = null;
     }
+
 }

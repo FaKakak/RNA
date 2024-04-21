@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class Record_generator {
     public static final int LONG_CHAIN_LEN = 30;
@@ -36,7 +37,7 @@ public class Record_generator {
                 nr_num, ctr1_num, ctr2_num, ctr3_num, RNA_num, total_mat_num, raw_num);
 
 
-            try (PrintWriter writer = new PrintWriter(new FileWriter("JavaModuan.txt", true))) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter("Java.txt", true))) {
                 writer.printf("step=%d: nr=%d, ctr1=%d, ctr2=%d, ctr3=%d, RNA=%d  (tn=%d, r=%d)\n", i,
                         nr_num, ctr1_num, ctr2_num, ctr3_num, RNA_num, total_mat_num, raw_num);
             } catch (IOException e) {

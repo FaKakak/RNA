@@ -11,8 +11,6 @@ public class RNA {
     public static final char[] INOCUSEQ1 = CTR1SEQ;
     public static final char[] INOCUSEQ2 = CTR2SEQ;
     public static final char[] INOCUSEQ3 = CTR3SEQ;
-
-
     char[][] information;
     int length1;
     int length2;
@@ -46,34 +44,14 @@ public class RNA {
         information[1][0] = '0';
     }
 
-    // 把newRNA添加到该RNA后边
-    public void addAfter(RNA newRNA){
+    public void addAfter(RNA newRNA){// 把newRNA添加到该RNA后边
         RNA oldNext = next;
         next = newRNA;
         newRNA.prior = this;
         newRNA.next = oldNext;
         if(oldNext.prior!=null) oldNext.prior = newRNA;
     }
-
-    // 把newRNA添加到该RNA前边
-    public void addBefore(RNA newRNA){
-        // 如果当前RNA是链表头，还是加在链表头的后边
-        if(prior==null){
-            next = newRNA;
-            newRNA.prior = this;
-            newRNA.next = this;
-        }
-        else{
-            RNA oldPrior = prior;
-            oldPrior.next = newRNA;
-            newRNA.prior = oldPrior;
-            newRNA.next = this;
-            this.prior = newRNA;
-        }
-    }
-
-    // 把当前RNA从链表中摘出来，变成自由的RNA
-    public void removeThis(){
+    public void removeThis(){// 把当前RNA从链表中摘出来，变成自由的RNA
         // 游离的RNA不用动
         if(prior==null) {
             if(next == this) return ;
@@ -90,5 +68,4 @@ public class RNA {
         next = this;
         prior = null;
     }
-
 }

@@ -23,11 +23,12 @@ public class Unit_case_generator {
 
     Environment environment;
     int SIDE;
-    Random random = new Random();
+    Random random;
     int h;
-    public Unit_case_generator(Environment environment) {
+    public Unit_case_generator(Environment environment,Random random) {
         this.environment = environment;
         SIDE = Environment.SIDE;
+        this.random = random;
     }
     public void unit_case(int h){
         this.h = h;
@@ -38,8 +39,7 @@ public class Unit_case_generator {
         }
         int xyIndex,xy,x,y;
 
-        for (int i = 0; i < Environment.CELLNUM; i++) {
-            // 随机选x,y，相当于xy_choose(void)
+        for (int i = 0; i < Environment.CELLNUM; i++) {// 随机选x,y
             xyIndex = random.nextInt(xy_init.size());
             xy = xy_init.get(xyIndex);
             xy_init.remove(xyIndex);
@@ -163,17 +163,11 @@ public class Unit_case_generator {
                         }
                     }
                 }
-                default -> {
-                    System.err.println("raw case error");
-                    System.exit(1);
-                }
             }
         }
     }
 
     private void case0(RNA p, int y, int x){
-        //Chain ligation
-        // 貌似done了
         for(RNA p3 = p.next;p3!=p;p3=p3.next){
             if (p3 == environment.cell_head[h][y][x]) { p3 = environment.cell_head[h][y][x].next; if (p3 == p)break; }
 

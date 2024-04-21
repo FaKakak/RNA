@@ -3,9 +3,10 @@ import java.util.Random;
 public class Inoculate_generator {
     public static final int INOCUNUM = 10;
     Environment environment;
-
-    public Inoculate_generator(Environment environment) {
+    Random random;
+    public Inoculate_generator(Environment environment,Random random) {
         this.environment = environment;
+        this.random = random;
     }
 
     public void inoculate(int h){
@@ -17,7 +18,6 @@ public class Inoculate_generator {
         }
     }
     private void inoculate_helper(int h,char[] seq){
-        Random random = new Random();
         int x = random.nextInt(Environment.SIDE);
         int y = random.nextInt(Environment.SIDE);
         RNA newRNA = new RNA(seq);
